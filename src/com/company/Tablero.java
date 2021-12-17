@@ -15,7 +15,7 @@ public class Tablero {
     private Tablero() {
     }
 
-    public static Tablero generateTablero() {
+    public static Tablero getInstance() {
 
         if (tablero == null) tablero = new Tablero();
 
