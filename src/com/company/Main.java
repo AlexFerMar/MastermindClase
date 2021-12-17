@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-        Tablero tablero = Tablero.generateTablero();
+        Tablero tablero = Tablero.getInstance();
         if (tablero.iniciarJuego())
             do {
                 Funciones.generateAleatorios(tablero);
@@ -19,10 +19,10 @@ public class Main {
                     if (!victoria) {
                         Funciones.givePista(tablero);
 
-                        JOptionPane.showMessageDialog(null, "Aqui tienes una pequeña pista:\n" + tablero.getSecuencia() + "\n" + tablero.getPista());
+                        Funciones.showPista(tablero);
                     }
                 }
-            } while ((JOptionPane.showConfirmDialog(null, tablero.menasajeFinal(), "Volver a jugar?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION));
+            } while (Funciones.volverJugar(tablero));
 
         JOptionPane.showMessageDialog(null, "Muchas gracias, ojala vuelvas a jugar!");
     }
