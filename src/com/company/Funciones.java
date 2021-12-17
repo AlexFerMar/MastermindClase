@@ -1,8 +1,5 @@
-package com.company;
-
-
-
 import javax.swing.*;
+
 
 public class Funciones {
 
@@ -47,13 +44,23 @@ public class Funciones {
 
         for (int i = 0; i < tablero.getESPACIO(); i++) {
 
-                    if (tablero.getSecuencia().charAt(i) == tablero.getAleatorio().charAt(i)) pista += "O";
+            if (tablero.getSecuencia().charAt(i) == tablero.getAleatorio().charAt(i)) pista += "O";
 
-                    else if (tablero.getAleatorio().indexOf(tablero.getSecuencia().charAt(i)) !=-1) pista += "X";
+            else if (tablero.getAleatorio().indexOf(tablero.getSecuencia().charAt(i)) !=-1) pista += "X";
 
-                    else pista += "-";
+            else pista += "-";
         }
         tablero.setPista(pista);
+    }
+
+    public static void showPista(Tablero tablero){
+
+        JOptionPane.showMessageDialog(null, "Aqui tienes una pequeña pista:\n" + tablero.getSecuencia() + "\n" + tablero.getPista());
+    }
+
+    public static boolean volverJugar(Tablero tablero){
+
+        return JOptionPane.showConfirmDialog(null,tablero.menasajeFinal() , "Volver a jugar?", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 
 
